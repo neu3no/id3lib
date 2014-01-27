@@ -1,0 +1,85 @@
+{
+  "versions" : {
+    "1" : {
+    
+    },
+    "2" : {
+      "versions" : [2,3,4],
+      "headsize" : 10,
+      "2" : {
+        "framehead" :{
+          "wordsize" : 3,
+          "sizebase" : 6
+        },
+        "encodings" : {
+            "0" : "binary",
+            "1" : "ucs2"
+        },
+        "header" :{
+          "flags" : [
+            "unsynchronisation", "compression"
+          ],
+          "calcsize" : 1
+        }
+      },
+      
+      "3" : {
+        "framehead" :{
+          "wordsize" : 4,
+          "sizebase" : 10,
+          "flag0" : [
+            "tagdiscard", "filediscard", "readonly"
+          ],
+          "flag1" : [
+            "compression", "encrypted", "groupinfo"
+          ]
+        },
+        "encodings" : {
+            "0" : "binary",
+            "1" : "ucs2"
+        },
+        "header" :{
+          "flags" : [
+            "unsynchronisation", "extendedheader", "experimental"
+          ],
+          "calcsize" : 1
+        },
+        "extheader" :{
+          "maxsize" : 14,
+          "calcsize" : 0,
+          "sizebase": 4 
+        }
+      },
+      
+      "4" : {
+        "framehead" :{
+          "wordsize" : 4,
+          "sizebase" : 10,
+          "flag0" : [
+            "tagdiscard", "filediscard", "readonly"
+          ],
+          "flag1" : [
+            "-", "groupinfo", "-", "-", "compression" ,"encrypted", "unsync", "datalengthindicator"
+          ]
+        },
+        "encodings" : {
+            "0" : "binary",
+            "1" : "ucs2",
+            "2" : "utf16be",
+            "3" : "utf8"
+        },
+        "header" :{
+          "flags" : [
+            "unsynchronisation", "extendedheader", "experimental", "footer"
+          ],
+          "calcsize" : 1
+        },
+        "extheader" :{
+          "maxsize" : 15,
+          "calcsize" : 1,
+          "sizebase" : 0
+        }
+      }
+    }
+  }
+}
